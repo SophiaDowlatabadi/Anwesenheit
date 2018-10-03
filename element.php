@@ -3,7 +3,7 @@
 
 <head>
     <?php include('bootstrapcss.php'); ?>
-	<title>Übersicht</title>
+	<title>Eintrag</title>
 </head>
 
 <body>
