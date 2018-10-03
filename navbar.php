@@ -7,19 +7,19 @@
 </head>
 
 <body>
-	<nav class="navbar navbar-expand-sm navbar-light bg-light">
-		<div class= "container"> 
-			<button class="navbar-toggler" data-toggle="collapse" data-target="#mainNav">
-				<span class="navbar-toggler-icon"> </span>
-			 </button>
-		<div class="collapse navbar-collapse" id="mainNav">
-			<div class="navbar-nav">
-				<a class="nav-item nav-link active" href="index.php"> Übersicht </a>
-				<a class="nav-item nav-link" href="element.php"> Eintrag </a>
+		<nav class="navbar navbar-expand-sm navbar-light bg-light">
+			<div class= "container"> 
+				<button class="navbar-toggler" data-toggle="collapse" data-target="#mainNav">
+					<span class="navbar-toggler-icon"> </span>
+				 </button>
+			<div class="collapse navbar-collapse" id="mainNav">
+				<div class="navbar-nav">
+					<a class="nav-item nav-link" href="index.php" id="ueb"> Übersicht </a>
+					<a class="nav-item nav-link" href="element.php" id="ein"> Eintrag </a>
+				</div>
+			 </div>
 			</div>
-		 </div>
-		</div>
-	</nav>
+		</nav>
 	<footer>
 		<?php include('bootstrapjs.php'); ?>	
 	</footer>
