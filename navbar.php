@@ -16,7 +16,8 @@
 
 				<div class="navbar-nav collapse navbar-collapse" id="mainNav">	
 						<a class="nav-item nav-link" href="index.php" id="ueb"><img src="img/tabelle.png"> Übersicht </a>
-						<a class="nav-item nav-link" href="eintrag.php" id="ein"><img src="img/bearbeiten.png">Eintrag </a>	
+						<a class="nav-item nav-link" href="eintrag.php" id="ein"><img src="img/bearbeiten.png">Eintrag </a>
+						<a class="nav-item nav-link" href="azubi.php" id="ein"><img src="img/people.png">Auszubildenden/Studenten </a>		
 				 </div>
 
 				<button class="navbar-toggler" data-toggle="collapse" data-target="#mainNav">
