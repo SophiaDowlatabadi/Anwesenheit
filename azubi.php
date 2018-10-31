@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -15,34 +16,36 @@
 	<div class="card bg-light text-dark">
 
 	  <div class="card-body">
-	  	
 
-	    <div class="input-group mb-3">
-			 <div class="input-group-prepend">
-			 	<span class="input-group-text" id="inputGroupName">Name</span>
-			 </div>
-			 <input type="text" class="form-control">
-		</div>
+		  	<form action="includes/speichern.inc.php" method="POST" >
 
-
-		<div class="input-group mb-3">
-			 <div class="input-group-prepend">
-			 	<span class="input-group-text" id="inputGroupKuerzel">Kürzel</span>
-			 </div>
-			 <input type="text" class="form-control">
-		</div>
+			    <div class="input-group mb-3">
+					 <div class="input-group-prepend">
+					 	<span class="input-group-text" id="inputGroupName">Name</span>
+					 </div>
+					 <input type="text" name="name" placeholder= "Name" class="form-control">
+				</div>
 
 
-		<div class="input-group mb-3">
-			 <div class="input-group-prepend">
-			 	<span class="input-group-text" id="inputGroupAusbildung">Ausbildung</span>
-			 </div>
-			 <input type="text" class="form-control">
-		</div>
+				<div class="input-group mb-3">
+					 <div class="input-group-prepend">
+					 	<span class="input-group-text" id="inputGroupKuerzel">Kürzel</span>
+					 </div>
+					 <input type="text" name ="kuerzel" placeholder= "Kürzel" class="form-control">
+				</div>
 
 
-		<button type="button" class="btn btn-success btn-lg btn-block">Speichern</button>
+				<div class="input-group mb-3">
+					 <div class="input-group-prepend">
+					 	<span class="input-group-text" id="inputGroupAusbildung">Ausbildung</span>
+					 </div>
+					 <input type="text" name="ausbildung" placeholder= "Ausbildung" class="form-control">
+				</div>
 
+
+				<button type="submit" name = "submit" class="btn btn-success btn-lg btn-block">Speichern</button>
+
+			</form>
 
 	  </div>
 	  
