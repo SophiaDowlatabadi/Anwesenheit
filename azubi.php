@@ -15,10 +15,11 @@
 	<div class="card bg-light text-dark">
 
 	  <div class="card-body">
+	  	
 
 	    <div class="input-group mb-3">
 			 <div class="input-group-prepend">
-			 	<span class="input-group-text" id="inputGroup-sizing-default">Name</span>
+			 	<span class="input-group-text" id="inputGroupName">Name</span>
 			 </div>
 			 <input type="text" class="form-control">
 		</div>
@@ -26,7 +27,7 @@
 
 		<div class="input-group mb-3">
 			 <div class="input-group-prepend">
-			 	<span class="input-group-text" id="inputGroup-sizing-default">Kürzel</span>
+			 	<span class="input-group-text" id="inputGroupKuerzel">Kürzel</span>
 			 </div>
 			 <input type="text" class="form-control">
 		</div>
@@ -34,13 +35,15 @@
 
 		<div class="input-group mb-3">
 			 <div class="input-group-prepend">
-			 	<span class="input-group-text" id="inputGroup-sizing-default">Ausbildung</span>
+			 	<span class="input-group-text" id="inputGroupAusbildung">Ausbildung</span>
 			 </div>
 			 <input type="text" class="form-control">
 		</div>
 
 
 		<button type="button" class="btn btn-success btn-lg btn-block">Speichern</button>
+
+
 	  </div>
 	  
 	</div>
