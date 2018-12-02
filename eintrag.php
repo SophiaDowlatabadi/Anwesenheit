@@ -70,6 +70,37 @@
 
 
 				<!--hier kommen die 2 Datumsfelder hin-->
+				<div class="input-group mb-3">
+					 <div class="input-group-prepend">
+					 	<span class="input-group-text" id="inputGroupName">Anfang</span>
+					 </div>
+					 <input type="date" name="DatumVon" placeholder= "DatumVon" class="form-control">
+				</div>
+
+
+				<div class="input-group mb-3">
+					 <div class="input-group-prepend">
+					 	<span class="input-group-text" id="inputGroupName">Ende</span>
+					 </div>
+					 <input type="date" name="DatumBis" placeholder= "DatumBis" class="form-control">
+				</div>
+
+
+				<!--hier kommen die 2 UhrzeitenFelder hin-->
+				<div class="input-group mb-3">
+					 <div class="input-group-prepend">
+					 	<span class="input-group-text" id="inputGroupName">Von</span>
+					 </div>
+					 <input type="time" name="UhrzeitVon" placeholder= "UhrzeitVon" class="form-control">
+				</div>
+
+
+				<div class="input-group mb-3">
+					 <div class="input-group-prepend">
+					 	<span class="input-group-text" id="inputGroupName">Bis</span>
+					 </div>
+					 <input type="time" name="UhrzeitBis" placeholder= "UhrzeitBis" class="form-control">
+				</div>
 
 
 				<div class="input-group mb-3">
@@ -81,7 +112,7 @@
 
 				</div>
 
-				<button type="button" class="btn btn-success btn-lg btn-block">Speichern</button>	
+				<button type="submit" name = "submit" class="btn btn-success btn-lg btn-block">Speichern</button>	
 
 		</form>
 
