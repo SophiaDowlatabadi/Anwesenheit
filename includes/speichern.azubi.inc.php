@@ -1,11 +1,11 @@
 <?php
 	include_once 'dbh.inc.php';
 
-	$name = $_POST['name'];
 	$kuerzel = $_POST['kuerzel'];
+	$name = $_POST['name'];
 	$ausbildung = $_POST['ausbildung'];
 
-	$sql = "INSERT INTO azubi(name,kuerzel,ausbildung) VALUES('$name', '$kuerzel', '$ausbildung');";
+	$sql = "INSERT INTO azubi(kuerzel,name,ausbildung) VALUES('$kuerzel','$name','$ausbildung');";
 	mysqli_query($conn, $sql);
 
 	header("Location: ../azubi.php?speichern=success");
