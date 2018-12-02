@@ -73,13 +73,12 @@
 
 
 				<div class="input-group mb-3">
-				  <div class="input-group-prepend">
-				    <label class="input-group-text" for="inputGroupSelectGrund">Grund</label>
-				  </div>
-				  <select class="custom-select" id="inputGroupSelectGrund">
-				    <option selected>Wähle dein Kürzel aus...</option>
+					 <div class="input-group-prepend">
+					 	<span class="input-group-text" id="inputGroupName">Grund</span>
+					 </div>
+					 <input type="text" name="Grund" placeholder= "Grund" class="form-control">
+				</div>
 
-				  </select>
 				</div>
 
 				<button type="button" class="btn btn-success btn-lg btn-block">Speichern</button>	
