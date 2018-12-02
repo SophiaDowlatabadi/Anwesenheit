@@ -17,7 +17,7 @@
 
 	  <div class="card-body">
 
-		  	<form action="includes/speichern.inc.php" method="POST" >
+		  	<form action="includes/speichern.azubi.inc.php" method="POST" >
 
 			    <div class="input-group mb-3">
 					 <div class="input-group-prepend">
