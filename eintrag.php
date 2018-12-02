@@ -23,24 +23,23 @@
 	<div class="card bg-light text-dark">
 	  <div class="card-body">
 
-	  	<form>
+	  	<form action="includes/speichern.eintrag.inc.php" method="POST">
 
 		  		<div class="input-group mb-3">
 			          <div class="input-group-prepend">
 			            <label class="input-group-text" for="inputGroupSelectName">Name</label>
 			          </div>
-			         <select class="custom-select" id="inputGroupSelectName">
+			         <select name = "name" class="custom-select" id="inputGroupSelectName">
 			         	<option selected>Wähle deinen Namen aus...</option>
-			           <?php $result = mysqli_query($conn, "SELECT * FROM azubi");
-			           //alle Zeilen aus der Abfrage in ein Array packen
-			           $resultset = array();
-			           while ($row = mysqli_fetch_array($result)) {
-			             $resultset[] = $row;
-			           }
+				           <?php $result = mysqli_query($conn, "SELECT * FROM azubi");
+				           //alle Zeilen aus der Abfrage in ein Array packen
+				           $resultset = array();
+				           while ($row = mysqli_fetch_array($result)) {
+				             $resultset[] = $row;
+				           }
 			           //die Einträge im Array durchgehen (Jeder Eintrag entspricht einer Zeile in der Tabelle aus deiner Query)
 			           //Für jeden Eintrag wird eine Option zu dem select hinzugefügt
-			           foreach ($resultset as $row) : ?>
-
+			           	foreach ($resultset as $row) : ?>
 			            <option value = "<?php echo $row['name']?>"><?php echo $row['name']?></option>
 			           <?php endforeach ?> 
 			          </select>
@@ -51,7 +50,7 @@
 				  <div class="input-group-prepend">
 				    <label class="input-group-text" for="inputGroupSelectKürzel">Kürzel</label>
 				  </div>
-				  <select class="custom-select" id="inputGroupSelectKürzel">
+				  <select name= "kuerzel" class="custom-select" id="inputGroupSelectKürzel">
 				    <option selected>Wähle dein Kürzel aus...</option>
 				    <?php $result = mysqli_query($conn, "SELECT * FROM azubi");
 			           //alle Zeilen aus der Abfrage in ein Array packen
