@@ -53,10 +53,19 @@
 				  </div>
 				  <select class="custom-select" id="inputGroupSelectKürzel">
 				    <option selected>Wähle dein Kürzel aus...</option>
-				    <option value="1">One</option>
-				    <option value="2">Two</option>
-				    <option value="3">Three</option>
-				  </select>
+				    <?php $result = mysqli_query($conn, "SELECT * FROM azubi");
+			           //alle Zeilen aus der Abfrage in ein Array packen
+			           $resultset = array();
+			           while ($row = mysqli_fetch_array($result)) {
+			             $resultset[] = $row;
+			           }
+			           //die Einträge im Array durchgehen (Jeder Eintrag entspricht einer Zeile in der Tabelle aus deiner Query)
+			           //Für jeden Eintrag wird eine Option zu dem select hinzugefügt
+			           foreach ($resultset as $row) : ?>
+
+			            <option value = "<?php echo $row['kuerzel']?>"><?php echo $row['kuerzel']?></option>
+			           <?php endforeach ?> 
+			          </select>
 				</div>
 
 
@@ -69,9 +78,7 @@
 				  </div>
 				  <select class="custom-select" id="inputGroupSelectGrund">
 				    <option selected>Wähle dein Kürzel aus...</option>
-				    <option value="1">One</option>
-				    <option value="2">Two</option>
-				    <option value="3">Three</option>
+
 				  </select>
 				</div>
 
