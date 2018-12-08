@@ -5,7 +5,7 @@
 <head>
     <?php include('bootstrapcss.php'); ?>
     <link rel="stylesheet" href="css/style.css">
-	<title>Eintrag</title>
+	<title>Auszubildende</title>
 </head>
 
 <body>
