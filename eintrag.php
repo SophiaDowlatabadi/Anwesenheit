@@ -93,23 +93,21 @@
 					 <input type="date" name="DatumBis" placeholder= "DatumBis" class="form-control">
 				</div>
 
+				<!--test-->
 
 
 				<div class="input-group mb-3">
-					
 					 <div class="input-group-prepend">
-					 	<span class="input-group-text" id="inputGroupName">Datum und Zeit</span>
+					 	<span class="input-group-text" id="inputGroupName">E</span>
 					 </div>
 					 <input type="text" id="datetime" class="form-control">
 					 <script type="text/javascript">
-					 	$("#datetime").datetimepicker({
-					 		format: 'yyyy-mm-dd hh:ii',
-					 		autoclose:true
-					 	});
+					 		$("#datetime").datetimepicker({
+					 			format:'yyyy-mm-dd hh:ii',
+					 			autoclose:true
+					 		});
 					 </script>
 				</div>
-
-				
 
 				<!--hier kommen die 2 UhrzeitenFelder hin-->
 				<div class="input-group mb-3">
