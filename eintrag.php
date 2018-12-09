@@ -10,8 +10,17 @@
 <html>
 
 <head>
+	<!--boostrap-->
     <?php include('bootstrapcss.php'); ?>
     <link rel="stylesheet" href="css/style.css">
+
+    <!--jquery-->
+    <script src="js/jquery-3.3.1.js"></script>
+
+    <!--Datetimepicker-->
+    <link rel="stylesheet" href="css/bootstrap-datetimepicker.css">
+    <script src="js/bootstrap-datetimepicker.min.js"></script>
+
 	<title>Eintrag</title>
 </head>
 
@@ -84,6 +93,23 @@
 					 <input type="date" name="DatumBis" placeholder= "DatumBis" class="form-control">
 				</div>
 
+
+
+				<div class="input-group mb-3">
+					
+					 <div class="input-group-prepend">
+					 	<span class="input-group-text" id="inputGroupName">Datum und Zeit</span>
+					 </div>
+					 <input type="text" id="datetime" class="form-control">
+					 <script type="text/javascript">
+					 	$("#datetime").datetimepicker({
+					 		format: 'yyyy-mm-dd hh:ii',
+					 		autoclose:true
+					 	});
+					 </script>
+				</div>
+
+				
 
 				<!--hier kommen die 2 UhrzeitenFelder hin-->
 				<div class="input-group mb-3">
