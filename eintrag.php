@@ -17,9 +17,14 @@
     <!--jquery-->
     <script src="js/jquery-3.3.1.js"></script>
 
+    <!--moment-->
+    <script src="js/moment.js"></script>
+    <script src="js/momentDE.js"></script>
+
+
     <!--Datetimepicker-->
-    <link rel="stylesheet" href="css/bootstrap-datetimepicker.css">
-    <script src="js/bootstrap-datetimepicker.min.js"></script>
+    <link rel="stylesheet" href="css/tempusdominus-bootstrap-4.css">
+    <script src="js/tempusdominus-bootstrap-4.js"></script>
 
 	<title>Eintrag</title>
 </head>
@@ -93,21 +98,59 @@
 					 <input type="date" name="DatumBis" placeholder= "DatumBis" class="form-control">
 				</div>
 
-				<!--test-->
+				<!--test-->			
+   					<!--<div class="row">-->
+       					<!--<div class="col-sm-6">-->
+            				<!--<div class="form-group">-->
+                				<div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                					<div class="input-group mb-3">
+					 					<div class="input-group-prepend">
+					 						<span class="input-group-text" id="inputGroupName">Anfang</span>
+					 					</div>
+                    					<input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1"/>
+										<div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                        				<div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                        				</div>
+                    				<!--</div>-->
+                				<!--</div>-->
+            				<!--</div>-->
+       					</div>
+        				<script type="text/javascript">
+            				$(function () {
+                				$('#datetimepicker1').datetimepicker({
+                					locale: 'de',
+                					autoclose: 'true'
+                				});
+            				});
+        				</script>
+    				</div>
 
 
-				<div class="input-group mb-3">
-					 <div class="input-group-prepend">
-					 	<span class="input-group-text" id="inputGroupName">E</span>
-					 </div>
-					 <input type="text" id="datetime" class="form-control">
-					 <script type="text/javascript">
-					 		$("#datetime").datetimepicker({
-					 			format:'yyyy-mm-dd hh:ii',
-					 			autoclose:true
-					 		});
-					 </script>
-				</div>
+    			<!--<div class="row">
+       					<div class="col-sm-6">-->
+            				<!--<div class="form-group">-->
+                				<div class="input-group date" id="datetimepicker2" data-target-input="nearest">
+                					<div class="input-group mb-3">
+					 					<div class="input-group-prepend">
+					 						<span class="input-group-text" id="inputGroupName2">Ende</span>
+					 					</div>
+                    					<input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker2"/>
+										<div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
+                        				<div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                        				</div>
+                    				<!--</div>
+                				</div>-->
+            				<!--</div>-->
+       					</div>
+        				<script type="text/javascript">
+            				$(function () {
+                				$('#datetimepicker2').datetimepicker({
+                					locale: 'de',
+                					autoclose: 'true'
+                				});
+            				});
+        				</script>
+    				</div>
 
 				<!--hier kommen die 2 UhrzeitenFelder hin-->
 				<div class="input-group mb-3">
