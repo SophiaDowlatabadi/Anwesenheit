@@ -10,6 +10,7 @@
     <script src="js/moment.js"></script>
     <script src="js/fullcalendar.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
+    <script src="js/de.js"></script>
 </head>
 
 <body>
@@ -21,7 +22,7 @@
 		<div class="card bg-light text-dark">
 
 			<div class="card-body">
-
+				
 				<div id="calendar"></div>
 
 			</div>

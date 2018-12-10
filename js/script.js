@@ -1,6 +1,7 @@
- $(function() {//$ = page is ready
+$(function() {//$ = page is ready
 
           var calendar = $('#calendar').fullCalendar({
+            locale:'de',
     editable:true,
     header:{
      left:'prev,next today',
