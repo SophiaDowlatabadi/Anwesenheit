@@ -37,7 +37,7 @@
 	<div class="card bg-light text-dark">
 	  <div class="card-body">
 
-	  	<form action="includes/speichern.eintrag.inc.php" method="POST">
+	  	<form name="test" action="includes/speichern.eintrag.inc.php" method="POST">
 
 		  		<div class="input-group mb-3">
 			          <div class="input-group-prepend">
@@ -87,7 +87,7 @@
 					 <div class="input-group-prepend">
 					 	<span class="input-group-text" id="inputGroupName">Anfang</span>
 					 </div>
-					 <input type="date" name="DatumVon" placeholder= "DatumVon" class="form-control">
+					 <input type="date" name="DatumVon" id="Anfang" placeholder= "DatumVon" class="form-control">
 				</div>
 
 
@@ -157,7 +157,7 @@
 					 <div class="input-group-prepend">
 					 	<span class="input-group-text" id="inputGroupName">Von</span>
 					 </div>
-					 <input type="time" name="UhrzeitVon" placeholder= "UhrzeitVon" class="form-control">
+					 <input type="time" name="UhrzeitVon" id="Von" placeholder= "UhrzeitVon" class="form-control" disabled="true">
 				</div>
 
 
@@ -181,6 +181,14 @@
 				<button type="submit" name = "submit" class="btn btn-success btn-lg btn-block">Speichern</button>	
 
 		</form>
+		<script type="text/javascript">
+			var anfang = document.getElementById("Anfang");
+			anfang.onchange = function () {
+   				if (this.value != "" || this.value.length > 0) {
+      			document.getElementById("Von").disabled = false;
+   				}
+			}
+		</script>
 
 	</div>
 	</div>
