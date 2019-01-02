@@ -9,7 +9,7 @@
 
 			<div class="card-body">
 
-				<h2>Sign Up</h2>
+				<h3 class="text-center">Registrierung</h3>
 				<form action="includes/signup.inc.php" method="post">
 
 					<div class="input-group mb-3">
@@ -40,7 +40,9 @@
 						    <input type="password" name="pwd-repeat" placeholder= "Passwort..." class="form-control">
 					</div>
 
-					<button type="submit" name = "signup-submit" class="btn btn-success btn-lg btn-block">Registrierung</button>
+					<!--andere Felder-->
+
+					<button type="submit" name = "signup-submit" class="btn btn-success btn-lg btn-block">Registrieren</button>
 				</form>
 		</div>
 		</div>

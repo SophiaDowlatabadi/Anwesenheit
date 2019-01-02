@@ -32,7 +32,9 @@
 						<button type="submit" name = "login-submit" class="btn btn-success btn-lg btn-block">Log In</button>
 
 					</form>
-					<a href="signup.php">Registrierung</a>
+					<div class="text-center">
+						<a href="signup.php">Registrierung</a>
+					</div>
 				</div>
 
 				</div>
