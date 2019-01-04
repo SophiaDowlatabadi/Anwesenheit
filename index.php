@@ -9,8 +9,14 @@
 
 				<div class="card-body">
 
-		<p>You are logged out!</p>
-		<p>You are logged in!</p>
+				<?php
+				if(isset($_SESSION['userId'])){
+					echo '<p>You are logged in!</p>';
+				}
+				else{
+					echo'<p>You are logged out!</p>';
+				}
+				?>
 
 				<div>
 					<form action="includes/login.inc.php" method="post">
@@ -26,7 +32,7 @@
 						 	<div class="input-group-prepend">
 							 	<span class="input-group-text" id="inputGroupName">Passwort</span>
 							</div>
-							 <input ype="password" name="pwd" placeholder= "Passwort..." class="form-control">
+							 <input type="password" name="pwd-login" placeholder= "Passwort..." class="form-control">
 						</div>
 
 						<button type="submit" name = "login-submit" class="btn btn-success btn-lg btn-block">Log In</button>
