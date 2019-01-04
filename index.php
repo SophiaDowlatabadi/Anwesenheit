@@ -1,22 +1,23 @@
 <?php
-	require "header.php"
+	require "header.php";
+	session_start();
 ?>
 
 	<body>
 
 		<div class="container">
 			<div class="card bg-light text-dark">
-
-				<div class="card-body">
-
 				<?php
+				
 				if(isset($_SESSION['userId'])){
 					echo '<p>You are logged in!</p>';
 				}
 				else{
-					echo'<p>You are logged out!</p>';
+					echo'<p>You are logged out1!</p>';
 				}
 				?>
+
+				<div class="card-body">
 
 				<div>
 					<form action="includes/login.inc.php" method="post">

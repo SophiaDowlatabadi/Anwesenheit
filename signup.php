@@ -10,6 +10,18 @@
 			<div class="card-body">
 
 				<h3 class="text-center">Registrierung</h3>
+				<?php
+					if(isset($_GET['error'])){//checkt ob in der URL irgwas mit error drinne ist
+						if($_GET['error'] == "emptyfields"){
+							echo '<p> Du bist dumm!</p>';
+						}
+						else{
+							header("Location: ../signup.php?signup=success");
+							exit();
+						}
+
+					}
+				?>
 				<form action="includes/signup.inc.php" method="post">
 
 					<div class="input-group mb-3">
