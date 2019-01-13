@@ -3,36 +3,29 @@
 
 		require 'dbh.inc.php';
 
+		$name = $_POST['nameid'];
 		$username = $_POST['uid'];
-		$email = $_POST['mail'];
 		$password = $_POST['pwd'];
 		$passwordRepeat = $_POST['pwd-repeat'];
-		//hier kommen noch die anderen Daten aus den anderen Felder hin
+		$beginn = $_POST['DatumVon'];
+		$ende = $_POST['DatumBis'];
+		$ausbildungsberuf = $_POST['ausbildung'];
 
-		if(empty($username) || empty($email) || empty($password)|| empty($passwordRepeat)){//alle Felder ausgefüllt
+		if(empty($name) ||empty($username) || empty($password) || empty($passwordRepeat)){//alle Felder ausgefüllt
 
-			header("Location: ../signup.php?error=emptyfields&uid=".$username."&mail=".$email);
+			header("Location: ../signup.php?error=emptyfields&uid=".$username);
 			exit();
 		}
-		/*else if(!filter_var($email, FILTER_VALIDATE_EMAIL) && (preg_match("/^[a-zA-Z0-9]*$/", $password) == false)){ //beide unten
-			header("Location: ../signup.php?error=invalidmail&uid=".$username);
-			exit();
-		}*/
-
-		/*else if(!filter_var($email, FILTER_VALIDATE_EMAIL) == false){ //wenn Email ok ist
-			header("Location: ../signup.php?error=invalidmailuid");
-			exit();
-		}*/
 		else if(preg_match("/^*$/", $password) == true){ //PWD Überprüfung
-			header("Location: ../signup.php?error=pws&mail=".$email);
+			header("Location: ../signup.php?error=pws");
 			exit();
 		}
 		else if($password !== $passwordRepeat){ //ob die PWDer übereinstimmen
-			header("Location: ../signup.php?error=pwdcheck&uid".$username."&mail=".$email);
+			header("Location: ../signup.php?error=pwdcheck&uid".$username);
 			exit();
 		}
 		else{ // wenn username schon verwendet wird
-			$sql = "SELECT uidUser FROM userazubi WHERE uidUser=?";
+			$sql = "SELECT usernameUsers FROM registrierung WHERE usernameUsers=?";
 			$statement = mysqli_stmt_init($conn);
 			if(!mysqli_stmt_prepare($statement, $sql)){
 				header("Location: ../signup.php?error=sqlerrorx");
@@ -48,7 +41,7 @@
 					exit();
 				}
 				else{
-					$sql = "INSERT INTO userazubi(uidUser, emailidUser, pwdidUser) VALUES (?,?,?) ";
+					$sql = "INSERT INTO registrierung(nameUsers,usernameUsers, pwdUsers, anfang, ende, ausbildungsberufUsers) VALUES (?,?,?,?,?,?) ";
 					$statement = mysqli_stmt_init($conn);
 					if(!mysqli_stmt_prepare($statement, $sql)){
 						header("Location: ../signup.php?error=sqlerror");
@@ -57,10 +50,10 @@
 					else{
 
 						$hashdPwd = password_hash($password, PASSWORD_DEFAULT);//bicript
-						mysqli_stmt_bind_param($statement, "sss", $username,$email, $hashdPwd);// in "" steht worauf kontrolliert werden soll; s=string, int=i, b= blob, d= double
+						mysqli_stmt_bind_param($statement, "ssssss", $name,$username,$hashdPwd, $beginn,$ende,$ausbildungsberuf);// in "" steht worauf kontrolliert werden soll; s=string, int=i, b= blob, d= double
 						mysqli_stmt_execute($statement);
 						mysqli_stmt_store_result($statement);
-						header("Location: ../signup.php?signup=success");
+						header("Location: ../uebersicht.php?signup=success");
 						exit();
 					
 					}

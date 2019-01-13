@@ -7,7 +7,7 @@
 
 		<div class="container">
 			<div class="card bg-light text-dark">
-				<?php
+				<!--<?php
 				
 				if(isset($_SESSION['userId'])){
 					echo '<p>You are logged in!</p>';
@@ -15,7 +15,7 @@
 				else{
 					echo'<p>You are logged out1!</p>';
 				}
-				?>
+				?>-->
 
 				<div class="card-body">
 
@@ -26,7 +26,7 @@
 							 <div class="input-group-prepend">
 							 	<span class="input-group-text" id="inputGroupName">Name</span>
 							 </div>
-							 <input type="text" name="mailuid" placeholder= "Benutzername..." class="form-control">
+							 <input type="text" name="userid" placeholder= "Benutzername..." class="form-control">
 						</div>
 
 						<div class="input-group mb-3">
