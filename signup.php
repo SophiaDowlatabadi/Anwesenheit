@@ -70,19 +70,26 @@
 						    <input type="password" name="pwd-repeat" placeholder= "Passwort..." class="form-control">
 					</div>
 
+					<div class="form-check">
+					    <input type="checkbox" class="form-check-input" id="checkboxAusbilder" name="obAusbilder" onclick="testobausb()">
+					    <label class="form-check-label" for="exampleCheck1">Ich bin Ausbilder</label>
+					</div>
+
+					
+
 					<div class="input-group mb-3">
 					 <div class="input-group-prepend">
-					 	<span class="input-group-text" id="inputGroupName">Beginn Ausbildung</span>
+					 	<span class="input-group-text" id="inputGroupNameAnfang">Anfang Ausbildung</span>
 					 </div>
-					 <input type="date" name="DatumVon" id="Anfang" placeholder= "DatumVon" class="form-control">
-					</div>
+					 <input type="date" id="VonA" name="DatumVon" placeholder= "DatumVon" class="form-control">
+					</div> 
 
 
 					<div class="input-group mb-3">
 					 <div class="input-group-prepend">
 					 	<span class="input-group-text" id="inputGroupName">Ende Ausbildung</span>
 					 </div>
-					 <input type="date" name="DatumBis" placeholder= "DatumBis" class="form-control">
+					 <input type="date" id="Bis" name="DatumBis" placeholder= "DatumBis" class="form-control">
 					</div>
 
 					<!--checkbox-->
@@ -91,13 +98,25 @@
 						<div class="input-group-prepend">
 						 	<span class="input-group-text" id="inputGroupName">Ausbildungsberuf</span>
 						</div>
-						    <input type="text" name="ausbildung" placeholder= "InfKauf, FaSys, FaAn..." class="form-control">
+						    <input type="text" id="ausbildung" name="ausbildung" placeholder= "InfKauf, FaSys, FaAn..." class="form-control">
 					</div>
-
-
 
 					<button type="submit" name = "signup-submit" class="btn btn-success btn-lg btn-block">Registrieren</button>
 				</form>
+
+				<script type="text/javascript" >  
+			     function testobausb(){  
+			          if(document.getElementById("checkboxAusbilder").checked == true){  
+			              document.getElementById("VonA").disabled = true;
+			              document.getElementById("Bis").disabled = true;
+			              document.getElementById("ausbildung").disabled = true;  
+			          }else{
+			            document.getElementById("VonA").disabled = false;
+			            document.getElementById("Bis").disabled = false;
+			            document.getElementById("ausbildung").disabled = false;
+			          }  
+			     }  
+			     </script> 
 		</div>
 		</div>
 	</div>

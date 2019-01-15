@@ -10,6 +10,7 @@
 		$beginn = $_POST['DatumVon'];
 		$ende = $_POST['DatumBis'];
 		$ausbildungsberuf = $_POST['ausbildung'];
+		$obAusbilder = $_POST['obAusbilder'];
 
 		if(empty($name) ||empty($username) || empty($password) || empty($passwordRepeat)){//alle Felder ausgefüllt
 
