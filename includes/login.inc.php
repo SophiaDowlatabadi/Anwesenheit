@@ -34,6 +34,7 @@
 						/*$_SESSION['userId'] = $row['idUsers']; // zweites sind die Spalten in der DB
 						$_SESSION['useruId'] = $row['uidUser'];// die Variablen können dann auch in der Webseite benutzt werden
 						*/
+						$_SESSION['userId'] = $row['nameUsers'];
 						header("Location: ../uebersicht.php?login=success");
 						exit();
 

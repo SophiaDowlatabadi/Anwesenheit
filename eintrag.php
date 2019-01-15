@@ -1,9 +1,8 @@
 <?php
 	include_once 'includes/dbh.inc.php';
 
-	$sql = "SELECT * FROM azubi;";
-	$result = mysqli_query($conn, $sql);
-
+	/*$sql = "SELECT * FROM azubi;";
+	$result = mysqli_query($conn, $sql);*/
 ?>
 
 <!DOCTYPE html>
@@ -43,45 +42,36 @@
 			          <div class="input-group-prepend">
 			            <label class="input-group-text" for="inputGroupSelectName">Name</label>
 			          </div>
-			         <select name = "name" class="custom-select" id="inputGroupSelectName">
+			        <select name = "name" class="custom-select" id="inputGroupSelectName">
 			         	<option selected>Wähle deinen Namen aus...</option>
-				           <?php $result = mysqli_query($conn, "SELECT * FROM azubi");
-				           //alle Zeilen aus der Abfrage in ein Array packen
-				           $resultset = array();
-				           while ($row = mysqli_fetch_array($result)) {
-				             $resultset[] = $row;
-				           }
-			           //die Einträge im Array durchgehen (Jeder Eintrag entspricht einer Zeile in der Tabelle aus deiner Query)
-			           //Für jeden Eintrag wird eine Option zu dem select hinzugefügt
-			           	foreach ($resultset as $row) : ?>
-			            <option value = "<?php echo $row['name']?>"><?php echo $row['name']?></option>
-			           <?php endforeach ?> 
+			            <option value = "<?php echo("{$_SESSION['userId']}");?>"><?php echo("{$_SESSION['userId']}");?></option>
+			        </select>
+			    </div>
+
+			        <div class="input-group mb-3">
+					 <div class="input-group-prepend">
+					 	<span class="input-group-text" id="inputGroupName">Grund</span>
+					 </div>
+					 <input type="text" name="Grund" placeholder= "Grund" class="form-control">
+					</div>
+
+					<div class="input-group mb-3">
+					 <div class="input-group-prepend">
+					 </div>
+					 <input type="text" name="Grund" disabled="true" placeholder= "Gib für Urlaub= U, Uni= S, Berufschule= B, N= alles andere ein." class="form-control">
+					</div>
+
+					<div class="input-group mb-3">
+			          <div class="input-group-prepend">
+			            <label class="input-group-text" for="inputGroupSelectName">Tageszeit</label>
+			          </div>
+			         <select name = "name" class="custom-select" id="inputGroupSelectName">
+			         	<option selected>Ganzer Tag</option>
+				        <option>Teilweise anwesend</option>   
 			          </select>
 			        </div>
 
-
-				<div class="input-group mb-3">
-				  <div class="input-group-prepend">
-				    <label class="input-group-text" for="inputGroupSelectKürzel">Kürzel</label>
-				  </div>
-				  <select name= "kuerzel" class="custom-select" id="inputGroupSelectKürzel">
-				    <option selected>Wähle dein Kürzel aus...</option>
-				    <?php $result = mysqli_query($conn, "SELECT * FROM azubi");
-			           //alle Zeilen aus der Abfrage in ein Array packen
-			           $resultset = array();
-			           while ($row = mysqli_fetch_array($result)) {
-			             $resultset[] = $row;
-			           }
-			           //die Einträge im Array durchgehen (Jeder Eintrag entspricht einer Zeile in der Tabelle aus deiner Query)
-			           //Für jeden Eintrag wird eine Option zu dem select hinzugefügt
-			           foreach ($resultset as $row) : ?>
-
-			            <option value = "<?php echo $row['kuerzel']?>"><?php echo $row['kuerzel']?></option>
-			           <?php endforeach ?> 
-			          </select>
-				</div>
-
-
+					
 				<!--hier kommen die 2 Datumsfelder hin-->
 				<div class="input-group mb-3">
 					 <div class="input-group-prepend">
@@ -166,14 +156,6 @@
 					 	<span class="input-group-text" id="inputGroupName">Bis</span>
 					 </div>
 					 <input type="time" name="UhrzeitBis" placeholder= "UhrzeitBis" class="form-control">
-				</div>
-
-
-				<div class="input-group mb-3">
-					 <div class="input-group-prepend">
-					 	<span class="input-group-text" id="inputGroupName">Grund</span>
-					 </div>
-					 <input type="text" name="Grund" placeholder= "Grund" class="form-control">
 				</div>
 
 				</div>

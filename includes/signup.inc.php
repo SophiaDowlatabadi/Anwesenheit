@@ -42,7 +42,7 @@
 					exit();
 				}
 				else{
-					$sql = "INSERT INTO registrierung(nameUsers,usernameUsers, pwdUsers, anfang, ende, ausbildungsberufUsers) VALUES (?,?,?,?,?,?) ";
+					$sql = "INSERT INTO registrierung(nameUsers,usernameUsers, pwdUsers, anfang, ende, ausbildungsberufUsers, obAusbilder) VALUES (?,?,?,?,?,?,?) ";
 					$statement = mysqli_stmt_init($conn);
 					if(!mysqli_stmt_prepare($statement, $sql)){
 						header("Location: ../signup.php?error=sqlerror");
@@ -51,7 +51,7 @@
 					else{
 
 						$hashdPwd = password_hash($password, PASSWORD_DEFAULT);//bicript
-						mysqli_stmt_bind_param($statement, "ssssss", $name,$username,$hashdPwd, $beginn,$ende,$ausbildungsberuf);// in "" steht worauf kontrolliert werden soll; s=string, int=i, b= blob, d= double
+						mysqli_stmt_bind_param($statement, "sssssss", $name,$username,$hashdPwd, $beginn,$ende,$ausbildungsberuf, $obAusbilder);// in "" steht worauf kontrolliert werden soll; s=string, int=i, b= blob, d= double
 						mysqli_stmt_execute($statement);
 						mysqli_stmt_store_result($statement);
 						header("Location: ../uebersicht.php?signup=success");
