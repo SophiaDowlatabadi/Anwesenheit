@@ -31,9 +31,7 @@
 					}
 					else if($pwdCheck == true){
 						session_start();
-						$_SESSION['userId'] = $row['idUsers']; // zweites sind die Spalten in der DB
-						$_SESSION['useruId'] = $row['uidUser'];// die Variablen können dann auch in der Webseite benutzt werden
-						
+						$_SESSION['userId'] = $row['nameUsers']; // zweites sind die Spalten in der DB			
 						$_SESSION['uu'] = "a"; //$row['nameUsers'];
 						header("Location: ../uebersicht.php?login=success");
 						exit();

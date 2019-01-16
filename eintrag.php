@@ -1,5 +1,6 @@
 <?php
 	include_once 'includes/dbh.inc.php';
+	session_start();
 	echo $_SESSION['uu'];
 	$result = mysqli_query($conn,"SELECT obAusbilder FROM registrierung");
 	$resultname =  mysqli_query($conn,"SELECT nameUsers FROM registrierung");
