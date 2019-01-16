@@ -7,7 +7,7 @@
 
 		<div class="container">
 			<div class="card bg-light text-dark">
-				<!--<?php
+				<?php
 				
 				if(isset($_SESSION['userId'])){
 					echo '<p>You are logged in!</p>';
@@ -15,7 +15,7 @@
 				else{
 					echo'<p>You are logged out1!</p>';
 				}
-				?>-->
+				?>
 
 				<div class="card-body">
 

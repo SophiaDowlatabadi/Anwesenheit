@@ -26,7 +26,6 @@
 					 <input type="text" name="name" placeholder= "Name" class="form-control">
 				</div>
 
-
 				<div class="input-group mb-3">
 					 <div class="input-group-prepend">
 					 	<span class="input-group-text" id="inputGroupKuerzel">Kürzel</span>

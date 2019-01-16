@@ -1,6 +1,24 @@
 <?php
 	include_once 'includes/dbh.inc.php';
-
+	echo $_SESSION['uu'];
+	$result = mysqli_query($conn,"SELECT obAusbilder FROM registrierung");
+	$resultname =  mysqli_query($conn,"SELECT nameUsers FROM registrierung");
+	$storeArray = Array();
+	$storeArrayName = Array();
+	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+	    $storeArray[] =  $row['obAusbilder'];  
+	}
+	while ($row = mysqli_fetch_array($resultname, MYSQLI_ASSOC)) {
+	    $storeArrayName[] =  $row['nameUsers'];  
+	}
+	for ($i = 0; $i < count($storeArray); $i++)
+	{
+		if($storeArray[$i] == 0){
+			//if $storeArray[$i] == $usernameLogin || $usernameSignup) dann zeige alle(eigene variable deklarieren und dann unten anzeigen lassen) 
+			echo $storeArrayName[$i];
+		} //else eigene variable(für unten zum anzeigen) == $usernameLogin || $usernameSignup)
+	   
+	}
 	/*$sql = "SELECT * FROM azubi;";
 	$result = mysqli_query($conn, $sql);*/
 ?>
@@ -44,7 +62,11 @@
 			          </div>
 			        <select name = "name" class="custom-select" id="inputGroupSelectName">
 			         	<option selected>Wähle deinen Namen aus...</option>
-			            <option value = "<?php echo("{$_SESSION['userId']}");?>"><?php echo("{$_SESSION['userId']}");?></option>
+			         	<?php
+			         	for ($i = 0; $i < count($storeArray); $i++): ?>
+			         	<option style="color:black" value = "<?php echo $storeArrayName[$i]?>"><?php echo $storeArrayName[$i]?>
+			         	<?php endfor ?>
+			         	</option>
 			        </select>
 			    </div>
 
