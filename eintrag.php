@@ -1,8 +1,6 @@
 <?php
 	include_once 'includes/dbh.inc.php';
 	session_start();
-	//echo $_SESSION['uu'];
-	//echo $_SESSION['NameAnmeldung'];
 	$result = mysqli_query($conn,"SELECT obAusbilder FROM registrierung");
 	$resultname =  mysqli_query($conn,"SELECT usernameUsers FROM registrierung");
 	$obAusbilderArray = Array();
@@ -15,29 +13,27 @@
 	while ($row = mysqli_fetch_array($resultname, MYSQLI_ASSOC)) {
 	    $storeArrayName[] =  $row['usernameUsers'];  //Namen der Benutzer(alle)
 	}
-	for ($i = 0; $i < count($obAusbilderArray); $i++)// alle 3 Einträge durchgehen
-	{
-		if($obAusbilderArray[$i] != "0"){//wenn Azubi, sollen alle namen in Array gespecichert werden
-			$nurAzubis = $storeArrayName[$i];
-			//echo $nurAzubis;
-
-		}
-		if($obAusbilderArray[$i] == "0"){// 0 heißt Ausbilder
-			$NamenAusbilder = $storeArrayName[$i];
-			if($_SESSION['NameAnmeldung'] == $NamenAusbilder){
-				//echo $nurAzubis;
-				echo "hallo";
-			}
-		}
-		else{//wenn Azubi
-			//echo $_SESSION['NameAnmeldung'];
-			if($_SESSION['NameAnmeldung'] == $nurAzubis){
-			echo "blubb";
+	$istAusbilder = FALSE;
+		for ($i = 0; $i < count($obAusbilderArray); $i++)
+		{
+		  $name = $storeArrayName[$i];//alle Namen der Einträge 
+		  if ($obAusbilderArray[$i] == "0" && $_SESSION['NameAnmeldung'] == $name) {//wenn  und name übereinstimmt
+		    $istAusbilder = TRUE;
+		  }
 		}
 
+		if ($istAusbilder == FALSE) {
+		  echo $_SESSION['NameAnmeldung'];// der angemeldete Azubi 
 		}
-	   
-	}
+		else {
+		  for ($i = 0; $i < count($obAusbilderArray); $i++) {
+		    $name = $storeArrayName[$i];
+		    if ($obAusbilderArray[$i] != "0") {
+		       echo $name; //alle Azubis
+		    }
+		  }
+		}
+	
 	/*$sql = "SELECT * FROM azubi;";
 	$result = mysqli_query($conn, $sql);*/
 ?>
@@ -81,20 +77,27 @@
 			          </div>
 			        <select name = "name" class="custom-select" id="inputGroupSelectName">
 			         	<option selected>Wähle deinen Namen aus...</option>
-			         	<?php for ($i = 0; $i < count($obAusbilderArray); $i++): ?>
-			         	<?php	if($obAusbilderArray[$i] != "0"){//wenn Azubi, sollen alle namen in Array gespecichert werden
-							$nurAzubis = $storeArrayName[$i]; } ?>
-			         	<?php if($obAusbilderArray[$i] == "0"): $NamenAusbilder = $storeArrayName[$i]; ?>
-			         	<?php if($_SESSION['NameAnmeldung'] == $NamenAusbilder): ?> <!--XX-->		
-			         		<option style="color:black" value = "<?php echo $nurAzubis?>"><?php echo $nurAzubis?>
-			         	<?php endif ?><!--XX-->	
+			         	<?php $istAusbilder = FALSE;
+							for ($i = 0; $i < count($obAusbilderArray); $i++)
+							{
+							  $name = $storeArrayName[$i];//alle Namen der Einträge 
+							  if ($obAusbilderArray[$i] == "0" && $_SESSION['NameAnmeldung'] == $name) {//wenn  und name übereinstimmt
+							    $istAusbilder = TRUE;
+							  }
+							}
 
+							if ($istAusbilder == FALSE): ?> <!--XX-->		
+			         		<option style="color:black" value = "<?php echo $_SESSION['NameAnmeldung'];?>"><?php echo $_SESSION['NameAnmeldung']?>
+			         	
 			         	<?php else: ?>
-			         	<?php if($_SESSION['NameAnmeldung'] == $nurAzubis): ?>
-			         	<option style="color:black" value = "<?php echo $_SESSION['NameAnmeldung']?>"><?php echo $_SESSION['NameAnmeldung']?>
+			         	<?php for ($i = 0; $i < count($obAusbilderArray); $i++): ?>
+						<?php $name = $storeArrayName[$i];
+							if ($obAusbilderArray[$i] != "0"): ?>
+			         	<option style="color:black" value = "<?php echo $name?>"><?php echo $name?>
 			         	<?php endif ?>
-			         <?php endif ?>
 			         	<?php endfor ?>
+			         	<?php endif ?>
+
 			         	</option>
 			        </select>
 			    </div>

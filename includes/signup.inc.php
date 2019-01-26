@@ -54,7 +54,7 @@
 						mysqli_stmt_bind_param($statement, "sssssss", $name,$username,$hashdPwd, $beginn,$ende,$ausbildungsberuf, $obAusbilder);// in "" steht worauf kontrolliert werden soll; s=string, int=i, b= blob, d= double
 						mysqli_stmt_execute($statement);
 						mysqli_stmt_store_result($statement);
-						header("Location: ../uebersicht.php?signup=success");
+						header("Location: ../index.php?signup=success");
 						exit();
 					
 					}
