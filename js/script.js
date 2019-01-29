@@ -1,8 +1,9 @@
 $(function() {//$ = page is ready
 
           var calendar = $('#calendar').fullCalendar({
+            defaultView: 'timelineMonth',
             locale:'de',
-    editable:true,
+    /*editable:true,
     header:{
      left:'prev,next today',
      center:'title',
@@ -11,6 +12,6 @@ $(function() {//$ = page is ready
     events: 'load.php',
     selectable:true,
     selectHelper:true,
-    editable:true
+    editable:true*/
    });
   });

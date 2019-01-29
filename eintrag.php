@@ -69,13 +69,13 @@
 	<div class="card bg-light text-dark">
 	  <div class="card-body">
 
-	  	<form name="test" action="includes/speichern.eintrag.inc.php" method="POST">
+	  	<form action="includes/speichern.eintrag.inc.php" method="POST">
 
 		  		<div class="input-group mb-3">
 			          <div class="input-group-prepend">
 			            <label class="input-group-text" for="inputGroupSelectName">Name</label>
 			          </div>
-			        <select name = "name" class="custom-select" id="inputGroupSelectName">
+			        <select name = "Namen" class="custom-select" id="inputGroupSelectName">
 			         	<option selected>Wähle deinen Namen aus...</option>
 			         	<?php $istAusbilder = FALSE;
 							for ($i = 0; $i < count($obAusbilderArray); $i++)
@@ -112,14 +112,14 @@
 					<div class="input-group mb-3">
 					 <div class="input-group-prepend">
 					 </div>
-					 <input type="text" name="Grund" disabled="true" placeholder= "Gib für Urlaub= U, Uni= S, Berufschule= B, N= alles andere ein." class="form-control">
+					 <input type="text" name="GrundB" disabled="true" placeholder= "Gib für Urlaub= U, Uni= S, Berufschule= B, N= alles andere ein." class="form-control">
 					</div>
 
 					<div class="input-group mb-3">
 			          <div class="input-group-prepend">
 			            <label class="input-group-text" for="inputGroupSelectName">Tageszeit</label>
 			          </div>
-			         <select name = "name" class="custom-select" id="inputGroupSelectName">
+			         <select name = "Tageszeit" class="custom-select" id="inputGroupSelectName">
 			         	<option selected>Ganzer Tag</option>
 				        <option>Teilweise anwesend</option>   
 			          </select>
@@ -151,7 +151,7 @@
 					 					<div class="input-group-prepend">
 					 						<span class="input-group-text" id="inputGroupName">Anfang</span>
 					 					</div>
-                    					<input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1"/>
+                    					<input type="text" name="AnfangZwei" class="form-control datetimepicker-input" data-target="#datetimepicker1"/>
 										<div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
                         				<div class="input-group-text"><i class="fa fa-calendar"></i></div>
                         				</div>
@@ -178,7 +178,7 @@
 					 					<div class="input-group-prepend">
 					 						<span class="input-group-text" id="inputGroupName2">Ende</span>
 					 					</div>
-                    					<input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker2"/>
+                    					<input type="text" name="EndeZwei" class="form-control datetimepicker-input" data-target="#datetimepicker2"/>
 										<div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
                         				<div class="input-group-text"><i class="fa fa-calendar"></i></div>
                         				</div>
