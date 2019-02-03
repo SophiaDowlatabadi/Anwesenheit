@@ -1,12 +1,7 @@
 <?php
 	include 'includes/dbh.inc.php';
-	date_default_timezone_set('Europe/Berlin');
 
-    (int)$currentpage = (!empty($_GET["currentpage"]))?$_GET["currentpage"]:0;
-    (int)$nextpage = $currentpage + 1;
-    (int)$prevpage = $currentpage - 1;
-
-    $result = mysqli_query($conn,"SELECT * FROM registrierung WHERE obAusbilder IS NULL;");
+	//date_default_timezone_set('Europe/Berlin');
 
     /*function build_calendar($month,$year) {
     	//wir brauchen die Anzahl der Tage im Monat
@@ -115,18 +110,32 @@ function dates_month($month, $year) {
 
     for ($i = 1; $i <= $num; $i++) {
         $mktime = mktime(0, 0, 0, $month, $i, $year);
-        $date = date("D d.", $mktime);
+        $date = date("D d", $mktime);
         $dates_month[$i] = $date;
     }
 
     return $dates_month;
 }
 
+function AlleAzubisUndDualeStudenten(){
+	global $conn;
+
+	$result = mysqli_query($conn, "SELECT * FROM registrierung WHERE obAusbilder IS NULL;");
+	$Azubis = Array();
+	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+	    $Azubis[] =  $row['usernameUsers'];  //Namen der Benutzer
+	}
+	return $Azubis;
+
+}
+
+function EintraegeFuerUebersicht(){
+	$EintraegeFuerUebersicht = mysqli_query($conn,"SELECT * FROM eintrag;");
+}
 
 function SophiasKalender($month,$year){
-		date_default_timezone_set('Europe/Berlin');
 
-	     // What is the first day of the month in question?
+	 // What is the first day of the month in question?
      $firstDayOfMonth = mktime(0,0,0,$month,1,$year);
 
      // How many days does this month contain?
@@ -147,6 +156,9 @@ function SophiasKalender($month,$year){
      $TageDesMonats = array();
      $TageDesMonats = dates_month($month, $year);
 
+     $Azubis= Array();
+     $Azubis = AlleAzubisUndDualeStudenten();
+
      $calendar = "<table class='table table-bordered table-sm'>";
      $calendar  .= "<th>Azubi/Duale Studenten</th>";
 
@@ -154,6 +166,14 @@ function SophiasKalender($month,$year){
 
           $calendar .= "<th class='header'>$TageDesMonats[$i]</th>";
      }
+
+     for($i = 0; $i < count($Azubis); $i++)
+     {
+          $calendar  .= "<tr>";
+          $calendar  .= "<td>" . $Azubis[$i] . "</td>";
+          $calendar  .= "</tr>";
+     }
+     
 
      return $calendar; 
 
