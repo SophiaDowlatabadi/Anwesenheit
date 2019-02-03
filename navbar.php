@@ -19,8 +19,7 @@
 
 				<div class="navbar-nav collapse navbar-collapse" id="mainNav">	
 						<a class="nav-item nav-link" href="uebersicht.php" id="ueb"><img src="img/tabelle.png"> Übersicht </a>
-						<a class="nav-item nav-link" href="eintrag.php" id="ein"><img src="img/bearbeiten.png">Eintrag </a>
-						<a class="nav-item nav-link" href="azubi.php" id="ein"><img src="img/people.png">Auszubildenden/Studenten </a>				
+						<a class="nav-item nav-link" href="eintrag.php" id="ein"><img src="img/bearbeiten.png">Eintrag </a>			
 				 </div>
 				 <form action="includes/logout.inc.php" method="post">
 							<button type = "submit" name="logout-submit" class="btn btn-success btn-sm btn-block float-right">Log Out</button>
