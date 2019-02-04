@@ -42,23 +42,6 @@ function EintraegeFuerUebersicht(){
 
 function SophiasKalender($month,$year){
 
-	 // What is the first day of the month in question?
-     $firstDayOfMonth = mktime(0,0,0,$month,1,$year);
-
-     // How many days does this month contain?
-     $numberDays = date('t',$firstDayOfMonth);
-
-     // Retrieve some information about the first day of the
-     // month in question.
-     $dateComponents = getdate($firstDayOfMonth);
-
-     // What is the name of the month in question?
-     $monthName = $dateComponents['month'];
-
-     // What is the index value (0-6) of the first day of the
-     // month in question.
-     $dayOfWeek = $dateComponents['wday'];
-
      //Tage des Monats im Array
      $TageDesMonats = array();
      $TageDesMonats = dates_month($month, $year);
@@ -71,7 +54,7 @@ function SophiasKalender($month,$year){
 
 
      $calendar = "<table class='table-bordered table-responsive'>";//table table-bordered table-sm
-     $calendar  .= "<th>Azubi/Duale Studenten</th>";
+     $calendar  .= "<th>Azubis/Duale Studenten</th>";
 
      for($i = 1; $i <= count($TageDesMonats); $i++) { 
 
