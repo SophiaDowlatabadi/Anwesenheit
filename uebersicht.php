@@ -24,14 +24,20 @@ function AlleAzubisUndDualeStudenten(){
 	$Azubis = Array();
 	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 	    $Azubis[] =  $row['usernameUsers'];  //Namen der Benutzer
+
 	}
 	return $Azubis;
 
 }
 
 function EintraegeFuerUebersicht(){
-	$EintraegeFuerUebersicht = mysqli_query($conn,"SELECT * FROM eintrag;");//jedes mal ein array für jede spalte
-	//lieber eine Abfrage mit einem Join?
+	global $conn;
+	$EintraegeFuerUebersicht = mysqli_query($conn,"SELECT * FROM eintrag;");
+	$Eintraege = Array();
+	while ($row = mysqli_fetch_array($EintraegeFuerUebersicht, MYSQLI_ASSOC)) {
+	$Eintraege[] =  $row['name'].$row['grund'].$row['tageszeit'].$row['anfangEins'].$row['endeEins'].$row['Von'].$row['Bis']; 
+}
+	return $Eintraege;
 }
 
 function SophiasKalender($month,$year){
@@ -60,7 +66,11 @@ function SophiasKalender($month,$year){
      $Azubis= Array();
      $Azubis = AlleAzubisUndDualeStudenten();
 
-     $calendar = "<table class='table table-bordered table-sm'>";
+     $Eintraege = Array();
+     $Eintraege = EintraegeFuerUebersicht();
+
+
+     $calendar = "<table class='table-bordered table-responsive'>";//table table-bordered table-sm
      $calendar  .= "<th>Azubi/Duale Studenten</th>";
 
      for($i = 1; $i <= count($TageDesMonats); $i++) { 
@@ -72,9 +82,17 @@ function SophiasKalender($month,$year){
      {
           $calendar  .= "<tr>"; // ich könnte jeder row die id geben mit dem namen des Azubis
           $calendar  .= "<td>" . $Azubis[$i] . "</td>";
+          foreach ($TageDesMonats as $tag) {
+          	//if($Eintraege['anfangEins'] = $tag){*/
+          	$calendar  .= "<td></td>";
+          	/*}
+          	else{
+          	$calendar  .= "<td></td>";
+          }*/
+          }
           $calendar  .= "</tr>";
      }
-     
+
      return $calendar; 
 
 }
@@ -95,6 +113,7 @@ function SophiasKalender($month,$year){
     <script src="js/scheduler.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
     <script src="js/de.js"></script>-->
+    <link rel="stylesheet" href="css/tabelle.css">
 </head>
 
 <body>
@@ -117,32 +136,7 @@ function SophiasKalender($month,$year){
 					$year = date("Y"); //derzeitiges Jahr
 					$month = date("m"); //drezeitiger Monat
 					echo SophiasKalender($month,$year);
-				 ?>
-
-
-				 <table>
-				    <tr id="somerow">
-				        <td>some text</td>
-				        <td>blubb</td>            
-				    </tr>
-				</table>
-
-				<script> 
-					var Row = document.getElementById("somerow");
-					var Cells = Row.getElementsByTagName("td");
-					alert(Cells[0].innerText);
-				</script>
-
-
-
-
-
-
-
-
-
-				 <table>
-
+				 ?>			
 			</div>
 		</div>
 	</div>

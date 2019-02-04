@@ -1,0 +1,13 @@
+.day {
+  background-color:gray;
+  height: 40px;
+  width: 40px;
+}
+
+.event {
+  
+}
+
+.event-urlaub {
+  background-color:green;
+}
