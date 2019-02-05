@@ -88,7 +88,7 @@ function SophiasKalender($month,$year){
           	for($k = 0; $k < count($Eintraege); $k++){
           			if($Azubis[$i] == $Eintraege[$k]['name']){
           				if(( $Eintraege[$k]['anfangEins']<= $tag) && ($Eintraege[$k]['endeEins'] >= $tag )){
-          					$calendar  .= "<td align='center' class ='day event event-urlaub'>".$Eintraege[$k]['grund']."</td>";
+          					$calendar  .= "<td title=". $Eintraege[$k]['tageszeit']. "align='center' class ='day event event-urlaub'>".$Eintraege[$k]['grund']."</td>";
           					$found = true;
           			}
           	}

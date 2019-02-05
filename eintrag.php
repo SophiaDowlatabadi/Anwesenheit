@@ -119,9 +119,9 @@
 			          <div class="input-group-prepend">
 			            <label class="input-group-text" for="inputGroupSelectName">Tageszeit</label>
 			          </div>
-			         <select name = "Tageszeit" class="custom-select" id="inputGroupSelectName">
-			         	<option selected>Ganzer Tag</option>
-				        <option>Teilweise anwesend</option>   
+			         <select name = "Tageszeit" class="custom-select" id="Tageszeit" onchange="check(this.value)">
+			         	<option value="A"selected>Ganzer Tag</option>
+				        <option value="B" >Teilweise anwesend</option>   
 			          </select>
 			        </div>
 
@@ -142,66 +142,12 @@
 					 <input type="date" name="DatumBis" placeholder= "DatumBis" class="form-control">
 				</div>
 
-				<!--test-->			
-   					<!--<div class="row">-->
-       					<!--<div class="col-sm-6">-->
-            				<!--<div class="form-group">-->
-                				<div class="input-group date" id="datetimepicker1" data-target-input="nearest">
-                					<div class="input-group mb-3">
-					 					<div class="input-group-prepend">
-					 						<span class="input-group-text" id="inputGroupName">Anfang</span>
-					 					</div>
-                    					<input type="text" name="AnfangZwei" class="form-control datetimepicker-input" data-target="#datetimepicker1"/>
-										<div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
-                        				<div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                        				</div>
-                    				<!--</div>-->
-                				<!--</div>-->
-            				<!--</div>-->
-       					</div>
-        				<script type="text/javascript">
-            				$(function () {
-                				$('#datetimepicker1').datetimepicker({
-                					locale: 'de',
-                					autoclose: 'true'
-                				});
-            				});
-        				</script>
-    				</div>
-
-
-    			<!--<div class="row">
-       					<div class="col-sm-6">-->
-            				<!--<div class="form-group">-->
-                				<div class="input-group date" id="datetimepicker2" data-target-input="nearest">
-                					<div class="input-group mb-3">
-					 					<div class="input-group-prepend">
-					 						<span class="input-group-text" id="inputGroupName2">Ende</span>
-					 					</div>
-                    					<input type="text" name="EndeZwei" class="form-control datetimepicker-input" data-target="#datetimepicker2"/>
-										<div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
-                        				<div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                        				</div>
-                    				<!--</div>
-                				</div>-->
-            				<!--</div>-->
-       					</div>
-        				<script type="text/javascript">
-            				$(function () {
-                				$('#datetimepicker2').datetimepicker({
-                					locale: 'de',
-                					autoclose: 'true'
-                				});
-            				});
-        				</script>
-    				</div>
-
 				<!--hier kommen die 2 UhrzeitenFelder hin-->
 				<div class="input-group mb-3">
 					 <div class="input-group-prepend">
 					 	<span class="input-group-text" id="inputGroupName">Von</span>
 					 </div>
-					 <input type="time" name="UhrzeitVon" id="Von" placeholder= "UhrzeitVon" class="form-control" disabled="true">
+					 <input type="time" name="UhrzeitVon" id="Von" placeholder= "UhrzeitVon" class="form-control">
 				</div>
 
 
@@ -209,7 +155,7 @@
 					 <div class="input-group-prepend">
 					 	<span class="input-group-text" id="inputGroupName">Bis</span>
 					 </div>
-					 <input type="time" name="UhrzeitBis" placeholder= "UhrzeitBis" class="form-control">
+					 <input type="time" name="UhrzeitBis" placeholder= "UhrzeitBis" id="Bis" class="form-control">
 				</div>
 
 				</div>
@@ -218,12 +164,27 @@
 
 		</form>
 		<script type="text/javascript">
-			var anfang = document.getElementById("Anfang");
+			/*var anfang = document.getElementById("Anfang");
 			anfang.onchange = function () {
    				if (this.value != "" || this.value.length > 0) {
       			document.getElementById("Von").disabled = false;
    				}
+			}*/
+			function check(val){
+			 var Von =document.getElementById('Von');
+			 var Bis =document.getElementById('Bis');
+			 if(val=='B'){
+			   Von.disabled = true;
+			   Bis.disabled = true;
 			}
+			 else  {
+			   Von.disabled = false;
+			   Bis.disabled = false;
+			}
+			}
+
+
+
 		</script>
 
 	</div>
