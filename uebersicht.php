@@ -81,26 +81,28 @@ function SophiasKalender($month,$year){
 
      for($i = 0; $i < count($Azubis); $i++)
      {
-          $calendar  .= "<tr>"; // ich könnte jeder row die id geben mit dem namen des Azubis
-          $calendar  .= "<td>" . $Azubis[$i] . "</td>";
-          foreach ($TageDesMonats as $tag) {
-          	$found = false;
-          	for($k = 0; $k < count($Eintraege); $k++){
-          			if($Azubis[$i] == $Eintraege[$k]['name']){
-          				if(( $Eintraege[$k]['anfangEins']<= $tag) && ($Eintraege[$k]['endeEins'] >= $tag )){
-          					$calendar  .= "<td title=". $Eintraege[$k]['tageszeit']. "align='center' class ='day event event-urlaub'>".$Eintraege[$k]['grund']."</td>";
-          					$found = true;
-          			}
+        $calendar  .= "<tr>"; // ich könnte jeder row die id geben mit dem namen des Azubis
+        $calendar  .= "<td>" . $Azubis[$i] . "</td>";
+        foreach ($TageDesMonats as $tag) 
+        {
+        $found = false;
+        for($k = 0; $k < count($Eintraege); $k++){
+          	if($Azubis[$i] == $Eintraege[$k]['name']){
+          		if(( $Eintraege[$k]['anfangEins']<= $tag) && ($Eintraege[$k]['endeEins'] >= $tag ))
+          		{
+          			$calendar  .= "<td align= 'center' class ='day event event-urlaub'>".$Eintraege[$k]['grund']."</td>";
+          			$found = true;
+          		}
           	}
-          }
+        }
           	if($found == false){
           		$calendar  .= "<td></td>";
           	}
-          }
+        }
           $calendar  .= "</tr>";
      }
 
-     return $calendar; 
+    return $calendar; 
 }
 
 

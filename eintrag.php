@@ -120,8 +120,8 @@
 			            <label class="input-group-text" for="inputGroupSelectName">Tageszeit</label>
 			          </div>
 			         <select name = "Tageszeit" class="custom-select" id="Tageszeit" onchange="check(this.value)">
-			         	<option value="A"selected>Ganzer Tag</option>
-				        <option value="B" >Teilweise anwesend</option>   
+			         	<option selected>Ganzer Tag</option> <!--value= A-->
+				        <option >Teilweise anwesend</option> <!--value= B-->  
 			          </select>
 			        </div>
 
@@ -163,14 +163,14 @@
 				<button type="submit" name = "submit" class="btn btn-success btn-lg btn-block">Speichern</button>	
 
 		</form>
-		<script type="text/javascript">
+		<!--<script type="text/javascript">
 			/*var anfang = document.getElementById("Anfang");
 			anfang.onchange = function () {
    				if (this.value != "" || this.value.length > 0) {
       			document.getElementById("Von").disabled = false;
    				}
 			}*/
-			function check(val){
+			/*function check(val){
 			 var Von =document.getElementById('Von');
 			 var Bis =document.getElementById('Bis');
 			 if(val=='B'){
@@ -181,11 +181,11 @@
 			   Von.disabled = false;
 			   Bis.disabled = false;
 			}
-			}
+			}*/
 
 
 
-		</script>
+		</script>-->
 
 	</div>
 	</div>
